@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <vector>
 using namespace std;
 
 class CWords
@@ -10,11 +11,11 @@ public:
 	~CWords();
 
 	string m_sInputWords;
-	string *m_sCaughtWords = new string[];
-	string *m_sWords = new string[];
+	vector<string> m_vsCaughtWords;
+	vector<string> m_vsWords;
 
-	void CatchWords(string m_sInputWords,string *m_sCaughtWords); //Catch all the words in the passage,may have some same words
-	void GetWords(string *m_sCaughtWords,string *m_sWords); //Get all the different words from the caught words
+	vector<string> CatchWords(string m_vsInputWords); //Catch all the words in the passage,may have some same words
+	vector<string> GetWords(vector<string> &m_vsCaughtWords); //Get all the different words from the caught words
 
 };
 
