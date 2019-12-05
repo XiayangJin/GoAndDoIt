@@ -4,7 +4,6 @@
 using namespace std;
 
 class CWords
-	
 {
 public:
 	CWords();

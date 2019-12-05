@@ -14,9 +14,9 @@ CSearch::~CSearch()
 vector<int> CSearch::GetWordsTimes(vector<string> &m_vsCaughtWords, vector<string> &m_vsWords){
 	vector<int> vnWordsTimes;
 	int nCounter = 0;
-	for (int i = 0; i < sizeof(m_vsWords); i++){
+	for (int i = 0; i < m_vsWords.size(); i++){
 		nCounter = 0;
-		for (int j = 0; j < sizeof(m_vsCaughtWords); j++){
+		for (int j = 0; j < m_vsCaughtWords.size(); j++){
 			if (m_vsWords[i] == m_vsCaughtWords[j]){
 				nCounter++;
 			}
@@ -29,8 +29,8 @@ vector<int> CSearch::GetWordsTimes(vector<string> &m_vsCaughtWords, vector<strin
 
 vector<double> CSearch::GetWordsRate(vector<string> &m_vsCaughtWords, vector<int> &m_vnWordsTimes){
 	vector<double> vdWordsRate;
-	for (int i = 0; i < sizeof(m_vnWordsTimes); i++){
-		vdWordsRate.push_back(m_vnWordsTimes[i]/sizeof(m_vsCaughtWords));
+	for (int i = 0; i < m_vnWordsTimes.size(); i++){
+		vdWordsRate.push_back((double)m_vnWordsTimes[i]/m_vsCaughtWords.size());
 	}
 
 	return vdWordsRate;

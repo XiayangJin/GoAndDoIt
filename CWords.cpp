@@ -17,8 +17,7 @@ vector<string> CWords::CatchWords(string m_vsInputWords){
 	vector<string> vsCaughtWords;
 	int nLastLetterLc = 0;
 	for (int i = 0; i < m_vsInputWords.length();i++){
-		if ((m_vsInputWords.substr(i, 1) >= "a" && m_vsInputWords <= "z") || (m_vsInputWords.substr(i, 1) >= "A" && m_vsInputWords <= "Z")){}
-		else{
+		if (!((m_vsInputWords.substr(i, 1) >= "a" && m_vsInputWords <= "z") || (m_vsInputWords.substr(i, 1) >= "A" && m_vsInputWords <= "Z"))){
 			vsCaughtWords.push_back(m_vsInputWords.substr(nLastLetterLc,i-nLastLetterLc));
 			nLastLetterLc = i;
 		}
