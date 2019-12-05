@@ -80,11 +80,13 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CSearch.h" />
     <ClInclude Include="CWords.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CSearch.cpp" />
     <ClCompile Include="CWords.cpp" />
     <ClCompile Include="MyFirstGoodProject.cpp" />
     <ClCompile Include="stdafx.cpp">

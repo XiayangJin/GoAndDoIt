@@ -27,6 +27,9 @@
     <ClInclude Include="CWords.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CSearch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -36,6 +39,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="CWords.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CSearch.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,14 +1,16 @@
-// 假新闻识别.cpp : 定义控制台应用程序的入口点。
+// MyFirstGoodProject.cpp : XiayangJin's 
 //
 
 #include "stdafx.h"
 #include "CWords.h"
+#include "CSearch.h"
 
 
 int _tmain(int argc, _TCHAR* argv[])
 {
 	CWords title;
 	CWords content;
+	CSearch title;
 
 	title.m_vsCaughtWords = title.CatchWords(title.m_sInputWords);
 	title.m_vsWords = title.GetWords(title.m_vsCaughtWords);
