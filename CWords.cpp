@@ -1,6 +1,9 @@
 #include "stdafx.h"
 #include "CWords.h"
 #include <vector>
+#include <algorithm> //To transform letters lower
+#include <ctype.h>
+#include <string>
 #include <iostream>
 
 
@@ -13,13 +16,21 @@ CWords::~CWords()
 {
 }
 
-vector<string> CWords::CatchWords(string m_vsInputWords){
+vector<string> CWords::CatchWords(string m_sInputWords){
+	string sInputWords = m_sInputWords;
 	vector<string> vsCaughtWords;
-	int nLastLetterLc = 0;
-	for (int i = 0; i < m_vsInputWords.length();i++){
-		if (!((m_vsInputWords.substr(i, 1) >= "a" && m_vsInputWords <= "z") || (m_vsInputWords.substr(i, 1) >= "A" && m_vsInputWords <= "Z"))){
-			vsCaughtWords.push_back(m_vsInputWords.substr(nLastLetterLc,i-nLastLetterLc));
-			nLastLetterLc = i;
+	int nLastLetterLct = 0;
+	for (int i = 0; i < sInputWords.length();i++){
+		if ((!((sInputWords.substr(i, 1) >= "a" && sInputWords <= "z") || (sInputWords.substr(i, 1) >= "A" && sInputWords <= "Z"))) 
+			|| sInputWords.substr(i, 1) == "\n"
+			|| ispunct(stoi(sInputWords.substr(i, 1)))){
+			do{
+				sInputWords.erase(i,1);
+			} while ((!((sInputWords.substr(i, 1) >= "a" && sInputWords <= "z") || (sInputWords.substr(i, 1) >= "A" && sInputWords <= "Z"))) ||  sInputWords.substr(i,1) == "\n");
+			string temp = sInputWords.substr(nLastLetterLct, i - nLastLetterLct);
+			transform(temp.begin(),temp.end(),temp.begin(),::tolower);
+			vsCaughtWords.push_back(temp);
+			nLastLetterLct = i;
 		}
 	}
 	return vsCaughtWords;

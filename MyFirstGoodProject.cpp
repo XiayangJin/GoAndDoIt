@@ -4,19 +4,21 @@
 #include "stdafx.h"
 #include "CWords.h"
 #include "CSearch.h"
+#include "COpenFile.h"
 #include <string> //To cout strings
 
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+	COpenFile inputTitle;
+	COpenFile inputContent;
 	CWords title;
 	CWords content;
 	CSearch searchTitle;
 	CSearch searchContent;
 
-	title.m_sInputWords = "a good boy ";
-	content.m_sInputWords = "a good boy called ben ";
-
+	title.m_sInputWords = inputTitle.OpenFile("D:\\MyFirstGoodProject\\title\\title01.txt");
+	content.m_sInputWords = inputContent.OpenFile("D:\\MyFirstGoodProject\\content\\content01.txt");
 	title.m_vsCaughtWords = title.CatchWords(title.m_sInputWords);
 	title.m_vsWords = title.GetWords(title.m_vsCaughtWords);
 	content.m_vsCaughtWords = content.CatchWords(content.m_sInputWords);
