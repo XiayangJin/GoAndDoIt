@@ -21,12 +21,12 @@ vector<string> CWords::CatchWords(string m_sInputWords){
 	vector<string> vsCaughtWords;
 	int nLastLetterLct = 0;
 	for (int i = 0; i < sInputWords.length();i++){
-		if ((!((sInputWords.substr(i, 1) >= "a" && sInputWords <= "z") || (sInputWords.substr(i, 1) >= "A" && sInputWords <= "Z"))) 
-			|| sInputWords.substr(i, 1) == "\n"
-			|| ispunct(stoi(sInputWords.substr(i, 1)))){
+		if (sInputWords.substr(i, 1) == " " || sInputWords.substr(i, 1) == "\n" || ispunct(sInputWords.substr(i, 1)[0])){
+			//Erase all the punctions/spaces
 			do{
-				sInputWords.erase(i,1);
-			} while ((!((sInputWords.substr(i, 1) >= "a" && sInputWords <= "z") || (sInputWords.substr(i, 1) >= "A" && sInputWords <= "Z"))) ||  sInputWords.substr(i,1) == "\n");
+				sInputWords.erase(i, 1);
+			} while ((sInputWords.substr(i, 1) == " " || sInputWords.substr(i, 1) == "\n" || ispunct(sInputWords.substr(i, 1)[0])));
+			//Catch the words into the vector
 			string temp = sInputWords.substr(nLastLetterLct, i - nLastLetterLct);
 			transform(temp.begin(),temp.end(),temp.begin(),::tolower);
 			vsCaughtWords.push_back(temp);
