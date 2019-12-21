@@ -28,6 +28,7 @@ string COpenFile::OpenFile(char *sFileLct){
 	fclose(hFile01);
 
 	string sInputWords = pBuff;
+	sInputWords = sInputWords.substr(0,sInputWords.length()-1);
 	transform(sInputWords.begin(), sInputWords.end(), sInputWords.begin(), ::tolower);
 	delete pBuff;
 	return sInputWords;
